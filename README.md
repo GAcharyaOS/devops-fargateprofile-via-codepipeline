@@ -1,14 +1,14 @@
 # Overview
 Through the steps discussed in the sections below, you can automate the creation of infrastructure that includes a pipeline connected to a CodeCommit source repository, picks up new / changed CloudFormation (CF) template from the repository and deploys the template into the environment.
 The solution is composed of 2 templates:
-1.	SetupDeploymentPipeline.json is the solution CF template to automate the build / setup of the deployment pipeline discussed above. Click here to download the file.
-2.	FargateProfile.json is example CF template to demo / test the deployment of Fargate profile (FP) in your EKS environment. You should be able to replace this with any other CF template of your choice based on your needs.  With little to no adjustment to the solution CF template, the solution can be used to support deployment of template for other AWS resources as well.  Click here to download the file.  
+1.	SetupDeploymentPipeline.json is the solution CF template to automate the build / setup of the deployment pipeline discussed above. Click [here](https://github.com/GAcharyaOS/devops-fargateprofile-via-codepipeline/blob/master/SetupDeploymentPipeline.json) to download the file.
+2.	FargateProfile.json is example CF template to demo / test the deployment of Fargate profile (FP) in your EKS environment. You should be able to replace this with any other CF template of your choice based on your needs.  With little to no adjustment to the solution CF template, the solution can be used to support deployment of template for other AWS resources as well.  Click [here](https://github.com/GAcharyaOS/devops-fargateprofile-via-codepipeline/blob/master/FargateProfile.json) to download the file.  
 The AWS services and capabilities in play to realize this solution are: AWS Code Pipeline, AWS CloudWatch Event Rule, AWS S3, AWS Code Commit and AWS CloudFormation. 
 
 # Deployment Pipeline Solution Design
 The solution template SetupDeploymentPipeline.json file when used, will create CF resource stack, which includes your artifact store, pipeline, and change-detection resources, such as your Amazon CloudWatch Events rule. After you create your resource stack in AWS CloudFormation, you can view your pipeline in the AWS CodePipeline console. The pipeline is a two-stage pipeline with a CodeCommit source stage and a CodeDeploy deployment stage as depicted in the diagram below:
 
- 
+ ![](https://github.com/GAcharyaOS/devops-fargateprofile-via-codepipeline/blob/master/Diagram.png)
 
 Flow:
 1.	DevOps Admin commits Fargate Profile CF Template
