@@ -1,5 +1,5 @@
 # Overview
-Through the steps discussed in the sections below, you can automate the creation of infrastructure that includes a pipeline connected to a CodeCommit source repository, picks up new / changed CloudFormation (CF) template from the repository and deploys the template into the environment.
+Through steps discussed in the sections below, you can automate the creation of infrastructure that includes a pipeline connected to a CodeCommit source repository, picks up new / changed CloudFormation (CF) template from the repository and deploys the template into the environment.
 The solution is composed of 2 templates:
 1.	SetupDeploymentPipeline.json is the solution CF template to automate the build / setup of the deployment pipeline discussed above. Click [here](https://github.com/GAcharyaOS/devops-fargateprofile-via-codepipeline/blob/master/SetupDeploymentPipeline.json) to download the file.
 2.	FargateProfile.json is example CF template to demo / test the deployment of Fargate profile (FP) in your EKS environment. You should be able to replace this with any other CF template of your choice based on your needs.  With little to no adjustment to the solution CF template, the solution can be used to support deployment of template for other AWS resources as well.  Click [here](https://github.com/GAcharyaOS/devops-fargateprofile-via-codepipeline/blob/master/FargateProfile.json) to download the file.  
@@ -24,7 +24,7 @@ There are three main steps in launching this solution: preparing an AWS account 
 
 ## Step 1. Prepare an AWS Account and Pre-requisite Setup
 1.	If you don’t already have an AWS account, create one at http://aws.amazon.com by following the on-screen instructions. Part of the sign-up process involves receiving a phone call and entering a PIN using the phone keypad. Be sure you’ve signed up for the CloudFormation service.
-2.	Use the region selector in the navigation bar of the console to choose the Northern Virginia (us-east-1) region
+2.	Use the region selector in the navigation bar of the console to choose desired AWS region.
 3.	Create a key pair. This is optional, since we’ll be using AWS Management Console for deployment. However, if you prefer to use CLI from your workstation, this is required step. 
 4.	You must complete following pre-requisites to deploy this solution: 
 > 1.	Create an S3 bucket in the AWS region targeted for deployment. S3 bucket will be used for 2 purposes:
@@ -68,6 +68,13 @@ Upon successfully execution of deployment steps, you should see the Fargate prof
 **To review code pipeline and history via the console**
 Follow steps outlined
 [here](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-view-console.html#pipelines-list-console)
+
+# Step 4. Clean the Environment
+When done using the solution, make sure that you delete the infrastructure and resources that were created part of the deployment steps above. So that, you don't continue to incur any AWS charges.  To delete the resource:
+1. Delete the CloudFormation stack for the FP profile template first. Stack name "FPDeployment", this is the stack that was created coz of successful execution of the Deploy stage in the piepline. For steps to delete the stack from AWS Management Console, click
+[here](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.html)
+2. Delete the CloudFormation stack for the solution CF template. This is the stack you created during "Step 2. Launch the Stack" section above. 
+3. Delete the S3 bucket created in "Step 1. Prepare an AWS Account and Pre-requisite Setup" above.
 
 
 ## Security
