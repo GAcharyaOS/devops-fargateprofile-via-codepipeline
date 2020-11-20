@@ -69,7 +69,7 @@ Upon successfully execution of deployment steps, you should see the Fargate prof
 Follow steps outlined
 [here](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-view-console.html#pipelines-list-console)
 
-# Step 4. Clean the Environment
+# Step 4. Cleanup the Environment
 When done using the solution, make sure that you delete the infrastructure and resources that were created part of the deployment steps above. So that, you don't continue to incur any AWS charges.  To delete the resource:
 1. Delete the CloudFormation stack for the FP profile template first. Stack name "FPDeployment", this is the stack that was created coz of successful execution of the Deploy stage in the piepline. For steps to delete the stack from AWS Management Console, click
 [here](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.html)
