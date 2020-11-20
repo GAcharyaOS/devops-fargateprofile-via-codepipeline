@@ -57,7 +57,7 @@ Here’s a listing of the key AWS resources that are created when this stack is 
 CLI Example
 Alternatively, you can launch the same stack from the command line. For details, refer [Create Stack via CLI](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-cli-creating-stack.html ) 
 
-# Step 3. Review the Deployment
+## Step 3. Review the Deployment
 Upon successfully execution of deployment steps, you should see the Fargate profile added to EKS Cluster. 
 
 **To verify profile addition to your cluster via the console**
